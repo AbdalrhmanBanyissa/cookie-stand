@@ -1,13 +1,24 @@
+h1{
+color: #F59067;
+}
+
+td:last-child{
+    border: none;
+}
+
 td{
     border:solid 1px black;
     text-align: center;
-    border-spacing: 5px;
+    font-size: 15px;
+    padding: 5px;
 }
 
 th{
-    
+    font-size: 20px;
+    padding: 5px;
 }
 
-tr{
-    width: 100%;
+table{
+    border-spacing: 0px;
 }
+
