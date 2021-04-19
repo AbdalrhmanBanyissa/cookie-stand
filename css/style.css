@@ -1,0 +1,13 @@
+td{
+    border:solid 1px black;
+    text-align: center;
+    border-spacing: 5px;
+}
+
+th{
+    
+}
+
+tr{
+    width: 100%;
+}
