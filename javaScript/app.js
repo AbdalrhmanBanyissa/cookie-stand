@@ -10,11 +10,11 @@ function getRandomIntInclusive ( min, max ) {
 
 const titleElement = document.getElementById( 'salmonTitle' );
 
-let h1Element = document.createElement( 'h1' );
+// let h1Element = document.createElement( 'h1' );
 
-h1Element.textContent = 'Pat\'s Salmon Cookies: Sales Data' ;
+// h1Element.textContent = 'Pat\'s Salmon Cookies: Sales Data' ;
 
-titleElement.appendChild( h1Element );
+// titleElement.appendChild( h1Element );
 
 let tableHeader = ['Location', '6 AM','7 AM','8 AM','9 AM','10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM','6 PM','7 PM'];
 
