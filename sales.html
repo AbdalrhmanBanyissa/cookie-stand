@@ -22,13 +22,13 @@
         <legend>Add new city</legend>
         <form action="">
             <label for="location">city</label>
-            <input id="location" name="location" type="text">
+            <input required id="location" name="location" type="text">
             <label for="minHourlyCustomers">minHourlyCustomers</label>
-            <input id="minHourlyCustomers" name="minHourlyCustomers" type="text">
+            <input id="minHourlyCustomers" name="minHourlyCustomers" type="number" min="1" max="25">
             <label for="maxHourlyCustomers">maxHourlyCustomers</label>
-            <input id="maxHourlyCustomers" name="maxHourlyCustomers" type="text">
+            <input id="maxHourlyCustomers" name="maxHourlyCustomers" type="number" min="26" max="99">
             <label for="averageCookiesPerCustomer">averageCookiesPerCustomer</label>
-            <input id="averageCookiesPerCustomer" name="averageCookiesPerCustomer" type="text">
+            <input id="averageCookiesPerCustomer" name="averageCookiesPerCustomer" type="number" min="1.5" max="7.9">
             <button type="submit">Add city</button>
             
         </form>
