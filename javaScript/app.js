@@ -8,16 +8,6 @@ function getRandomIntInclusive ( min, max ) {
   return Math.floor( Math.random() * ( max - min + 1 ) + min );
 }
 
-const titleElement = document.getElementById( 'salmonTitle' );
-
-// let h1Element = document.createElement( 'h1' );
-
-// h1Element.textContent = 'Pat\'s Salmon Cookies: Sales Data' ;
-
-// titleElement.appendChild( h1Element );
-
-let tableHeader = ['Location', '6 AM','7 AM','8 AM','9 AM','10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM','6 PM','7 PM'];
-
 const parentElement = document.getElementById( 'salmon' );
 
 let divElement = document.createElement( 'div' );
@@ -28,19 +18,53 @@ let tableElement = document.createElement( 'table' );
 
 divElement.appendChild( tableElement );
 
+let headder = function(){
+  let tableHeader = ['Location', '6 AM','7 AM','8 AM','9 AM','10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM','6 PM','7 PM'];
 
-let i = 0;
-for ( i = 0; i <= hourlySales.length ; i++ ){
-  let thElement = document.createElement( 'th' );
-  thElement.textContent = tableHeader[i];
-  tableElement.appendChild( thElement );
-}
+  let i = 0;
+  for ( i = 0; i <= hourlySales.length ; i++ ){
+    let thElement = document.createElement( 'th' );
+    thElement.textContent = tableHeader[i];
+    tableElement.appendChild( thElement );
+  }
 
-if ( i === 15 ) {
-  let thElement = document.createElement( 'th' );
-  thElement.textContent = 'Daily Location Total';
-  tableElement.appendChild( thElement );
-}
+  if ( i === 15 ) {
+    let thElement = document.createElement( 'th' );
+    thElement.textContent = 'Daily Location Total';
+    tableElement.appendChild( thElement );
+  }
+};
+
+
+let footer = function( ){
+  const tfElement = document.createElement( 'tfoot' );
+  tableElement.appendChild( tfElement );
+  const trow = document.createElement( 'tr' );
+  tableElement.appendChild( trow );
+  let td = document.createElement( 'td' );
+
+  let tdFooter = document.createElement( 'td' );
+  tdFooter.textContent = 'Total';
+  tableElement.appendChild( tdFooter );
+
+  let sumOfColumn = 0;
+
+  for ( let i = 2 ; i <= 16 ; i++ ){
+
+    let columnElement = document.querySelectorAll( 'tr td:nth-child('+i+')' );
+    let sumOfColumn=0;
+    for( let j = 0 ; j < columnElement.length ; j++ ){
+      sumOfColumn+=parseInt( columnElement[j].textContent );
+
+
+    }
+    td=document.createElement( 'td' );
+    td.textContent=sumOfColumn;
+    tableElement.appendChild( td );
+
+  }
+  return sumOfColumn;
+};
 
 
 function Location ( location, minHourlyCustomers, maxHourlyCustomers, averageCookiesPerCustomer ) {
@@ -89,6 +113,7 @@ function Location ( location, minHourlyCustomers, maxHourlyCustomers, averageCoo
   };
 }
 
+headder();
 
 let loc = new Location( 'Seattle',23,65,6.3 );
 loc.render();
@@ -110,29 +135,4 @@ let Lima = new Location( 'Lima',2,16,4.6 );
 Lima.render();
 console.log( Lima );
 
-
-const tfElement = document.createElement( 'tfoot' );
-tableElement.appendChild( tfElement );
-const trow = document.createElement( 'tr' );
-tableElement.appendChild( trow );
-let td = document.createElement( 'td' );
-
-let tdFooter = document.createElement( 'td' );
-tdFooter.textContent = 'Total';
-tableElement.appendChild( tdFooter );
-
-
-for ( let i = 2 ; i <= 16 ; i++ ){
-
-  let columnElement = document.querySelectorAll( 'tr td:nth-child('+i+')' );
-  let sumOfColumn=0;
-  for( let j = 0 ; j < columnElement.length ; j++ ){
-    sumOfColumn+=parseInt( columnElement[j].textContent );
-
-  }
-
-  td=document.createElement( 'td' );
-  td.textContent=sumOfColumn;
-  tableElement.appendChild( td );
-
-}
+footer( );
