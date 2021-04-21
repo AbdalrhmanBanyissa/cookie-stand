@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     
 </head>
-<header id="salmonTitle">
+<header>
     <img src="./img/salmon.png" alt="">
     <h1>Pat's Salmon Cookies: Sales Data</h1>
     <p></p>
@@ -18,6 +18,21 @@
     </nav>
 </header>
 <body>    
+    <fieldset id="form">
+        <legend>Add new city</legend>
+        <form action="">
+            <label for="location">city</label>
+            <input id="location" name="location" type="text">
+            <label for="minHourlyCustomers">minHourlyCustomers</label>
+            <input id="minHourlyCustomers" name="minHourlyCustomers" type="text">
+            <label for="maxHourlyCustomers">maxHourlyCustomers</label>
+            <input id="maxHourlyCustomers" name="maxHourlyCustomers" type="text">
+            <label for="averageCookiesPerCustomer">averageCookiesPerCustomer</label>
+            <input id="averageCookiesPerCustomer" name="averageCookiesPerCustomer" type="text">
+            <button type="submit">Add city</button>
+            
+        </form>
+    </fieldset>    
 <div id="salmon" ></div>
 <script src="./javaScript/app.js"></script>
 </body>
